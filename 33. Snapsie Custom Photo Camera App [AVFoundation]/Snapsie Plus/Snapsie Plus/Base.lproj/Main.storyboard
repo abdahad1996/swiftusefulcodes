@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Snapsie_Plus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htX-w0-6OV">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUt-jC-LrZ">
+                                <rect key="frame" x="167" y="616" width="80" height="80"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="9BP-6r-FUa"/>
+                                    <constraint firstAttribute="height" constant="80" id="ASz-sV-uFT"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="captureButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="siS-Qd-6Bs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLd-wV-LcV">
+                                <rect key="frame" x="30" y="50" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LOR-cK-OG8"/>
+                                    <constraint firstAttribute="width" constant="40" id="z1u-o8-XHX"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="capturedImageThumbnailButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHq-L5-oHF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="htX-w0-6OV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="5jA-PM-gtj"/>
+                            <constraint firstItem="eLd-wV-LcV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="K8t-5O-P0f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UUt-jC-LrZ" secondAttribute="bottom" constant="40" id="S4u-6n-00L"/>
+                            <constraint firstItem="htX-w0-6OV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Y1s-vo-P3D"/>
+                            <constraint firstItem="UUt-jC-LrZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bWG-ZJ-aql"/>
+                            <constraint firstItem="htX-w0-6OV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gCX-fq-fxp"/>
+                            <constraint firstItem="htX-w0-6OV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hDG-xN-nRJ"/>
+                            <constraint firstItem="eLd-wV-LcV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="pEf-gI-SKY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="camPreview" destination="htX-w0-6OV" id="ItA-eT-MRu"/>
+                        <outlet property="captureButton" destination="UUt-jC-LrZ" id="pCf-33-wZw"/>
+                        <outlet property="capturedImageThumbnailButton" destination="eLd-wV-LcV" id="ZhX-lx-l6V"/>
+                        <segue destination="Mid-ns-q9Z" kind="show" identifier="CapturedImageSegue" id="Ebm-Pe-hY5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="89.673913043478265"/>
+        </scene>
+        <!--Captured Image View Controller-->
+        <scene sceneID="3xa-Ag-4Ck">
+            <objects>
+                <viewController id="Mid-ns-q9Z" customClass="CapturedImageViewController" customModule="Snapsie_Plus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q6o-Nh-9oj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jhk-Hy-nFf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zM5-JT-imD">
+                                <rect key="frame" x="341" y="50" width="43" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButtonDidTouch:" destination="Mid-ns-q9Z" eventType="touchUpInside" id="9fm-Kh-qTb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jhk-Hy-nFf" firstAttribute="bottom" secondItem="JN1-gW-JOz" secondAttribute="bottom" id="4IQ-mi-5Im"/>
+                            <constraint firstItem="jhk-Hy-nFf" firstAttribute="trailing" secondItem="JN1-gW-JOz" secondAttribute="trailing" id="8ay-6N-eln"/>
+                            <constraint firstItem="jhk-Hy-nFf" firstAttribute="top" secondItem="Q6o-Nh-9oj" secondAttribute="top" id="9JX-9M-2yg"/>
+                            <constraint firstItem="zM5-JT-imD" firstAttribute="top" secondItem="JN1-gW-JOz" secondAttribute="top" constant="30" id="HZK-2f-SFF"/>
+                            <constraint firstItem="zM5-JT-imD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JN1-gW-JOz" secondAttribute="leading" constant="10" id="Wcf-xu-yhm"/>
+                            <constraint firstItem="jhk-Hy-nFf" firstAttribute="leading" secondItem="JN1-gW-JOz" secondAttribute="leading" id="ZQi-qx-zUX"/>
+                            <constraint firstItem="JN1-gW-JOz" firstAttribute="trailing" secondItem="zM5-JT-imD" secondAttribute="trailing" constant="30" id="Zmg-J5-Djf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JN1-gW-JOz"/>
+                    </view>
+                    <connections>
+                        <outlet property="capturedImageView" destination="jhk-Hy-nFf" id="bvi-nl-7cO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLT-jS-ziW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921.73913043478262" y="86.413043478260875"/>
+        </scene>
+    </scenes>
+</document>
